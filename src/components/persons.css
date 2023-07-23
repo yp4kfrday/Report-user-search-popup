@@ -32,24 +32,17 @@
     margin: 1.2rem 0 2rem;
 }
 
-.portfolio__item-cta {
+.portfolio-item__cta {
     display: flex;
     gap: 1rem;
     margin-bottom: 1rem;
 }
 
-.portfolio__titles {
+.portfolio-item__titles {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
-}
-
-.people__finder {
-    width: 1120px;
-    height: 48px;
-    border-radius: 24px;
-    border: 1px solid var(--blueberry, #D4DEFE);
 }
 
 .portfolio {
@@ -61,11 +54,7 @@
     align-items: center;
 }
 
-.search__icon {
-    float: right;
-    margin-top: 0.7rem;
-    margin-right: 1rem;
-}
+
 
 /* ==== media (medium dev) === */
 

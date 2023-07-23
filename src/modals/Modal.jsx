@@ -3,39 +3,41 @@ import './modal.css'
 
 import CloseModalIcon from '../assets/my-icon-close-modal.svg'
 
-const Modal = ({ active, setActive }) => {
+const Modal = ({ active, setActive, selectedUser }) => {
+  if (!selectedUser) return null;
+
   const handleCloseModal = () => {
     setActive(false);
   }
 
   return (
     <div className={active ? 'modal active' : 'modal'} onClick={() => setActive(false)}>
-      <div className='person-popup' onClick={e => e.stopPropagation()}>
-        <div className='popup__title-owner'>
-          <h2 >Соня Саченко</h2>
-          <button className='close-button' onClick={handleCloseModal}>
-            <img className='close-icon' src={CloseModalIcon} alt="close-button" />
+      <div className='popup' onClick={e => e.stopPropagation()}>
+        <div className='popup__header'>
+          <h2>{selectedUser.name}</h2>
+          <button className='popup__close-button' onClick={handleCloseModal}>
+            <img src={CloseModalIcon} alt="close-button" />
           </button>
         </div>
-        <div className='person-popup__content'>
-          <div className='person-popup__info'>
-            <p className='popup__title'>Телефон:</p>
-            <p className='popup__title'>Почта:</p>
-            <p className='popup__title'>Дата приёма:</p>
-            <p className='popup__title'>Должность:</p>
-            <p className='popup__title'>Подразделение:</p>
-          </div>
-          <div className='person-popup__about'>
-            <p className='about'>Телефон:</p>
-            <p className='about' >Почта:</p>
-            <p className='about'> Дата приёма:</p>
-            <p className='about'>Должность:</p>
-            <p className='about'>Подразделение:</p>
+          <div className='popup__info'>
+            <div className='person-popup__info'>
+              <p className='popup__info-title'>Телефон:</p>
+              <p className='popup__info-title'>Почта:</p>
+              <p className='popup__info-title'>Дата приёма:</p>
+              <p className='popup__info-title'>Должность:</p>
+              <p className='about__department-title'>Подразделение:</p>
+            </div>
+            <div className='popup__about'>
+              <p className='popup__about-text'>{selectedUser.phone}</p>
+              <p className='popup__about-text'>{selectedUser.email}</p>
+              <p className='popup__about-text'>{selectedUser.hire_date}</p>
+              <p className='popup__about-text'>{selectedUser.position_name}</p>
+              <p className='popup__about-department'>{selectedUser.department}</p>
           </div>
         </div>
-        <div className='person-popup__extended'>
-          <h3 className='popup__extended'> Дополнительная информация: </h3>
-          <p className='about'>Разработчики используют текст в качестве заполнителя макта страницы. Разработчики используют текст в качестве заполнителя макта страницы.</p>
+        <div className='popup__extended'>
+          <h3 className='popup__extended-title'> Дополнительная информация: </h3>
+          <p className='popup__about-text'>Разработчики используют текст в качестве заполнителя макта страницы. Разработчики используют текст в качестве заполнителя макта страницы.</p>
         </div>
       </div>
     </div>

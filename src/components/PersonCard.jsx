@@ -1,17 +1,19 @@
 import React from 'react';
+import MyIcon from '../assets/my-icon.svg';
+import MailIcon from '../assets/icon-mail.svg'
 
-const PersonCard = ({ phone, title, link, mail, onClick  }) => {
+const PersonCard = ({name, phone, email, onClick  }) => {
     return (
         <div className='portfolio__item' onClick={onClick} >
-            <h2>{title}</h2>
-            <div className='Portfolio__titles'>
-                <div className='portfolio__item-cta'>
-                    <img src={phone} alt='img' />
-                    <h4>{title}</h4>
+            <h2>{name}</h2>
+            <div className='portfolio-item__titles'>
+                <div className='portfolio-item__cta'>
+                    <img src={MyIcon} alt='img' />
+                    <h4>{phone}</h4>
                 </div>
-                <div className='portfolio__item-cta'>
-                    <img src={mail} alt='img' />
-                    <h4>{title}</h4>
+                <div className='portfolio-item__cta'>
+                    <img src={MailIcon} alt='img' />
+                    <h4>{email}</h4>
                 </div>
             </div>
         </div>
